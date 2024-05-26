@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('views', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('video_id')->references('id')->on('videos')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('views_number');
             $table->timestamps();
         });
     }

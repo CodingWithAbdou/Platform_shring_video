@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('title');
+            $table->string('disk');
+            $table->string('video_path');
+            $table->string('image_path');
+            $table->string('hours')->nullable();
+            $table->string('minutes')->nullable();
+            $table->string('seconds')->nullable();
+            $table->string('quality')->nullable();
+            $table->boolean('processed')->default(false);
+            $table->boolean('Longitudinal')->default(false);
             $table->timestamps();
         });
     }

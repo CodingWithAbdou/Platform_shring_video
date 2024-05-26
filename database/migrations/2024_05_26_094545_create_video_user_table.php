@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('video_user', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('video_id')->references('id')->on('videos')->onDelete('cascade');
             $table->timestamps();
         });
     }

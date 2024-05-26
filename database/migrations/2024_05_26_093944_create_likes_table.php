@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->foreignId('video_id');
+            $table->boolean('like');
             $table->timestamps();
         });
     }
