@@ -14,7 +14,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Readex Pro", ...defaultTheme.fontFamily.sans],
+                sans: ["Cairo", ...defaultTheme.fontFamily.sans],
             },
         },
     },

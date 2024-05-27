@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class VideoController extends Controller
 {
@@ -27,7 +31,27 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' =>  'required',
+            'image_path' => 'required|image',
+            'video_path' => 'required',
+        ]);
+
+        $reandomPath = Str::random(16);
+        $videoPath = $reandomPath . '.'  . $request->video->getClientOriginalExtension();
+        $imagePath = $reandomPath . '.'  . $request->image->getClientOriginalExtension();
+
+        $image = Image::make($request->image)->resize(320, 180);
+        $path = Storage::put($imagePath, $image->stream());
+        $request->video->storeAs('/', $videoPath, 'public');
+
+        Video::create([
+            'disk' => 'public',
+            'title' =>  $request->title,
+            'image' => $imagePath,
+            'video' => $videoPath,
+            'user_id' => auth()->id(),
+        ]);
     }
 
     /**

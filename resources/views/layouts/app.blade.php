@@ -12,9 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Readex+Pro:wght@160..700&display=swap"
-        rel="stylesheet">
-    <!-- Scripts -->
+        href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Cairo:wght@200..1000&family=Readex+Pro:wght@160..700&display=swap"
+        rel="stylesheet"> <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- box Icon style -->
@@ -34,7 +33,13 @@
 
         <!-- Page Content -->
         <main>
-            {{ $slot }}
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        {{ $slot }}
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 
