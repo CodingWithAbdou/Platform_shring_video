@@ -82,6 +82,12 @@
 
 <x-app-layout>
     <div class="p-4 flex flex-col	 items-center justify-center direc">
+        @if (session('success'))
+            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 w-full"
+                role="alert">
+                <span class="font-medium"> {{ session('success') }}</span>
+            </div>
+        @endif
         <h2 class="w-full bg-gray-100 rounded-md shadow-sm p-4 text-center ">رفع فيدو على المنصة</h2>
         <form class="flex flex-col gap-4" action="{{ route('videos.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
