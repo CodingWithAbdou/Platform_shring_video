@@ -33,6 +33,12 @@
 
         <!-- Page Content -->
         <main>
+            @if (session('success'))
+                <div class=" max-w-7xl mx-auto sm:px-6 lg:px-8 p-4 my-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 w-full"
+                    role="alert">
+                    <span class="font-medium"> {{ session('success') }}</span>
+                </div>
+            @endif
             <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
