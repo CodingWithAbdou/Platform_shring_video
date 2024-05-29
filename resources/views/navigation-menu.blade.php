@@ -11,16 +11,21 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex gap-2">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex  gap-4">
                     {{-- <x-nav-link href="{{ route('main') }}" :active="request()->routeIs('main')"> --}}
-                    <x-nav-link href="#" :active="request()->routeIs('main')">
+                    {{-- <x-nav-link href="#" :active="request()->routeIs('main')">
                         <i class='bx bx-home-alt text-neutral-800 mx-2'></i>
                         {{ __('الرئيسية ') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
 
                     <x-nav-link href="{{ route('videos.create') }}" :active="request()->routeIs('videos.create')">
-                        <i class='bx bx-upload text-neutral-800 mx-2'></i>
+                        <i class='bx bx-upload text-neutral-800  me-2'></i>
                         {{ __('رفع فيديو ') }}
+                    </x-nav-link>
+
+                    <x-nav-link href="{{ route('videos.index') }}" :active="request()->routeIs('videos.index')">
+                        <i class='bx bxs-videos text-neutral-800 me-2'></i>
+                        {{ __('فيديوهاتي ') }}
                     </x-nav-link>
                 </div>
             </div>

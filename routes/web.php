@@ -28,5 +28,5 @@ Route::middleware([
     })->name('dashboard');
 });
 
-
 Route::resource('videos', VideoController::class);
+Route::post('/videos/search', [VideoController::class, 'search'])->name('videos.search');
