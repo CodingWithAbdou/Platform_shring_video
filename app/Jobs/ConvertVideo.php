@@ -177,11 +177,6 @@ class ConvertVideo implements ShouldQueue
 
         $converted_video->save();
 
-
-        $data = [
-            'video_title' => $this->video->title,
-        ];
-
         $this->video->update([
             'processed' => true,
             'hours' => $hours,
